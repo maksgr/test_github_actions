@@ -23,6 +23,6 @@ jobs:
           ssh-key: ${{ secrets.KEY }}
           script: |
           cd ${{ secrets.PROJECT_PATH }}
-          git pull origin main
+          git pull
           docker container start
 
