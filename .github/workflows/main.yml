@@ -22,4 +22,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
-          script: docker container restart odoo
+          script: docker container start odoo
