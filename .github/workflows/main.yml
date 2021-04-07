@@ -23,3 +23,7 @@ jobs:
           key: ${{ secrets.KEY }}
           port: ${{ secrets.PORT }}
           script: docker container start odoo
+
+      - name: SHOW MASSAGE
+          run:  echo "TEST"
+
