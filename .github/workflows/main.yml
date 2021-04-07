@@ -16,7 +16,7 @@ jobs:
 
       # Deploy
       - name: Deploy Exigo Dev
-        uses: maksgr/test_github_actions@main
+        uses: ./.github/actions/test_github_actions@main@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
