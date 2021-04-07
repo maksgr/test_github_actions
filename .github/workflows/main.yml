@@ -21,8 +21,5 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           ssh-key: ${{ secrets.KEY }}
-          script: |
-          cd ${{ secrets.PROJECT_PATH }}
-          git pull
-          docker container start
+          script: cd ${{ secrets.PROJECT_PATH }} && git pull origin main && docker container start
 
