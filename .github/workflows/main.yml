@@ -5,21 +5,36 @@ on:
     branches: [ main ]
   pull_request:
 
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#
+#    # Steps represent a sequence of tasks that will be executed as part of the job
+#    steps:
+#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#      - uses: actions/checkout@master
+#
+#      # Deploy
+#      - name: Deploy Exigo Dev
+#        uses: maksgr/test_github_actions@main
+#        with:
+#          host: ${{ secrets.HOST }}
+#          username: ${{ secrets.USERNAME }}
+#          key: ${{ secrets.KEY }}
+#          port: ${{ secrets.PORT }}
+#          script: docker container start odoo
+
 jobs:
-  build:
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+  deploy:
+    if: github.ref == 'refs/heads/master'
+    runs-on: [ubuntu-latest]
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
-      # Deploy
-      - name: Deploy Exigo Dev
-        uses: maksgr/test_github_actions@main
+      - name: Push to server
+        uses: maksgr/test_github_actions@master
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY }}
-          port: ${{ secrets.PORT }}
-          script: docker container start odoo
+          script: cd ${{ secrets.PROJECT_PATH }} && git pull
+
