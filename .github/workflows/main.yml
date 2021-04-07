@@ -16,7 +16,7 @@ jobs:
 
       # Deploy
       - name: Deploy Exigo Dev
-        uses:  actions/setup-python@v2
+        uses: actions/checkout@v2
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
