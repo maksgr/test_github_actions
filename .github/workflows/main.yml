@@ -14,7 +14,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Deploy TEST aaaa
+      # Deploy TEST
       - name: Deploy Exigo Dev
         uses: appleboy/ssh-action@master
         with:
